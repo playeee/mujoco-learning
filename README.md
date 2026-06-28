@@ -40,6 +40,7 @@ bash install_pinocchio.sh
 ## Tutorials
 |file|url|
 |----|-------|
+|rl_panda_pickup_cube.py|[Mujoco 机械臂 RL 强化学习 Pick and Place Cube 小方块](https://www.bilibili.com/video/BV1YKTG6GEqj/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)|
 |sensordata.py|[Mujoco 仿真中传感器数据（SensorData）获取及使用](https://www.bilibili.com/video/BV1CZovBSEvT/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)|
 |pbvs_mpc.py|[Mujoco 机械臂 MPC 模型预测控制应用 PBVS](https://www.bilibili.com/video/BV1UtSoBPEdr/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)|
 |pickup_cube.py|[Mujoco 物体pickup总失败？摩擦力有哪些（切向、扭转、滚动）](https://www.bilibili.com/video/BV1dZAuzLEh2/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)|
