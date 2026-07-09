@@ -1,41 +1,47 @@
 # mujoco-learning
 
-## Related package
+## Installation
 
+### 1. System dependencies (Ubuntu / WSL2)
+
+```bash
+# 基础库 & GUI 支持
+sudo apt update && sudo apt install -y \
+    libgl1-mesa-glx libgl1-mesa-dri mesa-utils \
+    libxcb-xinerama0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 \
+    libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-sync1 \
+    libxcb-xfixes0 libxkbcommon-x11-0 libqt5gui5 libqt5widgets5
+
+# 编译 PyKDL / Pinocchio 所需工具
+sudo apt install -y make cmake g++ unzip python3-dev libboost-all-dev
 ```
-# uv 
-uv venv
-source .venv/bin/activate
-uv pip install -r requirements.txt
 
-# WSL2
-sudo apt update
-sudo apt install -y \
-    libgl1-mesa-glx \
-    libgl1-mesa-dri \
-    mesa-utils \
-    libxcb-xinerama0 \
-    libxcb-icccm4 \
-    libxcb-image0 \
-    libxcb-keysyms1 \
-    libxcb-randr0 \
-    libxcb-render-util0 \
-    libxcb-shape0 \
-    libxcb-sync1 \
-    libxcb-xfixes0 \
-    libxkbcommon-x11-0 \
-    libxcb-xkb1 \
-    libqt5gui5 \
-    libqt5widgets5
+### 2. Python 环境
 
-# install PyKDL
-sudo apt install make cmake g++ libeigen3-dev unzip python3-dev libboost-all-dev -y
-bash install_pykdl.sh
-
-# install pinocchio
-bash install_pinocchio.sh
-
+```bash
+uv venv && source .venv/bin/activate
+uv sync                          # 安装主要依赖 (pyproject.toml + uv.lock)
 ```
+
+### 3. Pinocchio（可选，用于 MPC / IK）
+
+```bash
+bash scripts/install_pinocchio.sh    # 源码编译带 CasADi 的 Pinocchio
+```
+
+安装后直接使用即可。
+
+### 4. PyKDL + kdl_parser（可选，用于 URDF 运动学）
+
+```bash
+# uv sync 会安装 kdl_parser Python 包
+uv sync
+
+# 运行脚本：编译 PyKDL C++ 库 + 自动修复兼容性问题
+bash scripts/install_pykdl.sh        # 第一次需要编译，之后会自动检查跳过
+```
+
+之后 `import kdl_parser` / `from kdl_parser.urdf import ...` 即可使用。
 
 ## Tutorials
 |file|url|

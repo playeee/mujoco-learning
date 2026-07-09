@@ -1,0 +1,64 @@
+[project]
+name = "mujoco-learning"
+version = "0.1.0"
+description = "MuJoCo learning tutorials and projects"
+requires-python = ">=3.10"
+
+dependencies = [
+    "absl-py",
+    "casadi>=3.6.0",
+    "cloudpickle",
+    "colorama",
+    "contourpy",
+    "cycler",
+    "etils",
+    "farama-notifications",
+    "filelock",
+    "fonttools",
+    "fsspec",
+    "glfw>=2.5.0",
+    "gymnasium>=0.29.0",
+    "jinja2",
+    "kiwisolver",
+    "markupsafe",
+    "matplotlib>=3.5.0",
+    "mpmath",
+    "mujoco>=3.0.0",
+    "networkx",
+    "numpy>=1.24.0",
+    "eigenpy>=3.4.0",
+    "opencv-python>=4.8.0",
+    "packaging",
+    "pandas",
+    "pillow",
+    "pin>=4.0.0",
+    "pyopengl>=3.1.0",
+    "pyparsing",
+    "python-dateutil",
+    "scipy>=1.10.0",
+    "setuptools",
+    "six",
+    "stable-baselines3>=2.0.0",
+    "sympy",
+    "torch>=2.0.0",
+    "typing-extensions",
+    "urdf-parser-py",
+    "kdl-parser-jvytee @ git+https://github.com/jvytee/kdl_parser.git",
+]
+
+[project.optional-dependencies]
+eigenpy = [
+    "eigenpy>=3.4.0",
+]
+
+# Note: scripts/install_pinocchio.sh handles pinocchio CASADI bindings.
+# The pip-installed `pin` wheel does NOT include the casadi submodule.
+# To rebuild with CASADI support:  bash scripts/install_pinocchio.sh [--rebuild]
+# IPOPT solver is built into CasADi (no separate PyPI ipopt package needed).
+
+[tool.uv]
+# Cross-platform: no special environment markers needed.
+# `uv sync` resolves dependencies for the current OS/architecture automatically.
+
+[tool.uv.pip-compile]
+# Allow platform-specific resolution via markers in dependencies if needed.

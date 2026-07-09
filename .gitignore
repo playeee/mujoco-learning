@@ -1,11 +1,29 @@
+# Ignore large/uppercase TXT files (requirements snapshots etc.)
 *TXT
-# *.png
+
+# Python / build artifacts
 *.pyc
+__pycache__/
+
+# Tensors / logs
 tensorboard
+
+# Source builds (cloned during install)
 pinocchio
 eigenpy
 casadi
 kdl_parser
 pinocchio_install
+scripts/kdl_parser
+scripts/orocos_kinematics_dynamics
+scripts/pinocchio_src
+scripts/jrl-cmakemodules
+
+# Submodule .git dirs
 */.git
+
+# Other
 urdf2mjcf
+lxml/
+urdf_parser_py/
+yaml.py
